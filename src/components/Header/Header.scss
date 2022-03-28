@@ -1,0 +1,90 @@
+// Header.scss
+
+@use "../../styles/global" as *;
+
+.header {
+  background-color: $color-primary-dark;
+  height: $header-height-mobile;
+  @include display-flex(row, space-between, center);
+
+  &__container {
+    @include display-flex(row, center, space-between);
+    @include margin;
+    width: 100%;
+    gap: 0;
+
+    @include bp-tablet {
+      gap: 5%;
+    }
+
+    @include bp-desktop {
+      gap: 3%;
+    }
+  }
+
+  &__nav-link {
+    @include display-flex(row, center, center);
+    gap: 10%;
+  }
+
+  &__nav-item {
+    @include display-flex(row, center, center);
+    gap: 10%;
+
+    &--hidden {
+      display: none;
+
+      @include bp-tablet {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.logo {
+  @include subheader;
+  color: $color-primary-light;
+  text-decoration: none;
+}
+
+.icon {
+  height: 1.875rem;
+  filter: brightness(0) invert(1);
+
+  &__label {
+    color: $color-primary-light;
+    text-align: left;
+    width: fit-content;
+
+    &--hidden {
+      display: none;
+
+      @include bp-desktop {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.search {
+  height: fit-content;
+
+  &--tablet-display {
+    display: none;
+
+    @include bp-tablet {
+      display: inline-block;
+      flex-grow: 2;
+    }
+  }
+
+  &__input {
+    height: 3.125rem;
+    padding: 0.625rem;
+    background-image: url(../../assets/images/search.svg);
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    background-size: 1.25rem;
+    width: 100%;
+  }
+}

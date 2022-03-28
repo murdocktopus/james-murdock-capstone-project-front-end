@@ -2,13 +2,13 @@
 
 @use "./_typography" as *;
 
-@mixin mq-tablet {
+@mixin bp-tablet {
   @media only screen and (min-width: 768px) {
     @content;
   }
 }
 
-@mixin mq-desktop {
+@mixin bp-desktop {
   @media only screen and (min-width: 1280px) {
     @content;
   }
@@ -25,26 +25,26 @@
 
 //margin for wrappers
 @mixin margin {
-  margin-left: 2.4rem;
-  margin-right: 2.4rem;
-  @include mq-tablet {
-    margin-left: 3.2rem;
-    margin-right: 3.2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  @include bp-tablet {
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
-  @include mq-desktop {
+  @include bp-desktop {
     margin: auto;
     max-width: 1020px;
   }
 }
 //margin for component gutters
 @mixin component-gutter {
-  margin-left: 2.4rem;
-  margin-right: 2.4rem;
-  @include mq-tablet {
-    margin-left: 3.2rem;
-    margin-right: 3.2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  @include bp-tablet {
+    margin-left: 2rem;
+    margin-right: 2rem;
   }
-  @include mq-desktop {
+  @include bp-desktop {
     margin-left: 4rem;
     margin-right: 4rem;
   }
@@ -54,49 +54,49 @@
 //mobile and tablet/desktop font styles combined for respective type
 @mixin page-header {
   @include font-mobile-h1-page-header;
-  @include mq-tablet {
+  @include bp-tablet {
     @include font-tablet-desktop-h1-page-header;
   }
 }
 
 @mixin subheader {
   @include font-mobile-h2-subheader;
-  @include mq-tablet {
+  @include bp-tablet {
     @include font-tablet-desktop-h2-subheader;
   }
 }
 
 @mixin labels-links-buttons {
   @include font-mobile-body-h3-labels-link-buttons;
-  @include mq-tablet {
+  @include bp-tablet {
     @include font-tablet-desktop-body-h3-labels-link-buttons;
   }
 }
 
 @mixin table-header {
   @include font-mobile-labels-h4-table-header;
-  @include mq-tablet {
+  @include bp-tablet {
     @include font-tablet-desktop-labels-h4-table-header;
   }
 }
 
 @mixin p1 {
   @include font-mobile-p1-body-large;
-  @include mq-tablet {
+  @include bp-tablet {
     @include font-tablet-desktop-p1-body-large;
   }
 }
 
 @mixin p2 {
   @include font-mobile-p2-body-medium;
-  @include mq-tablet {
+  @include bp-tablet {
     @include font-tablet-desktop-p2-body-medium;
   }
 }
 
 @mixin p3 {
   @include font-mobile-p3-body-small;
-  @include mq-tablet {
+  @include bp-tablet {
     @include font-tablet-desktop-p3-body-small;
   }
 }
