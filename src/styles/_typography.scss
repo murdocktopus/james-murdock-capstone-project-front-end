@@ -1,0 +1,93 @@
+// styles/_typography.scss
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,wght@0,100;0,200;1,100;1,200&family=Titillium+Web:wght@400;600&display=swap");
+
+html {
+  font-family: "Titillium Web", sans-serif;
+}
+
+// * Desktop & Tablet
+@mixin font-tablet-desktop-h1-page-header {
+  font-size: 3.2rem;
+  line-height: 4rem;
+  font-weight: 600;
+}
+
+@mixin font-tablet-desktop-h2-subheader {
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  font-weight: 600;
+}
+
+@mixin font-tablet-desktop-body-h3-labels-link-buttons {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  font-weight: 600;
+}
+
+@mixin font-tablet-desktop-labels-h4-table-header {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  font-weight: 600;
+}
+
+@mixin font-tablet-desktop-p1-body-large {
+  font-size: 1.6rem;
+  line-height: 2.8rem;
+  font-weight: 400;
+}
+
+@mixin font-tablet-desktop-p2-body-medium {
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+  font-weight: 400;
+}
+
+@mixin font-tablet-desktop-p3-body-small {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  font-weight: 400;
+}
+
+// * Mobile
+@mixin font-mobile-h1-page-header {
+  font-size: 2.8rem;
+  line-height: 3.6rem;
+  font-weight: 600;
+}
+
+@mixin font-mobile-h2-subheader {
+  font-size: 2rem;
+  line-height: 2.8rem;
+  font-weight: 600;
+}
+
+@mixin font-mobile-body-h3-labels-link-buttons {
+  font-size: 1.3rem;
+  line-height: 2rem;
+  font-weight: 600;
+}
+
+@mixin font-mobile-labels-h4-table-header {
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  font-weight: 600;
+}
+
+@mixin font-mobile-p1-body-large {
+  font-size: 1.5rem;
+  line-height: 2.6rem;
+  font-weight: 400;
+}
+
+@mixin font-mobile-p2-body-medium {
+  font-size: 1.3rem;
+  line-height: 2rem;
+  font-weight: 400;
+}
+
+@mixin font-mobile-p3-body-small {
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+  font-weight: 400;
+}
