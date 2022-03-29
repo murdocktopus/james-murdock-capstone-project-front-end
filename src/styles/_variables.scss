@@ -1,5 +1,7 @@
 // styles/_variables.scss
 
+// @use "./global" as *;
+
 // Header Component
 
 $header-height-mobile: 5rem;
@@ -11,5 +13,6 @@ $nav-height-mobile: 5rem;
 
 // padding
 
+$padding-between-components-half-mobile: 0.5rem;
 $padding-between-components-mobile: 1rem;
 $padding-between-components-tablet: 2rem;

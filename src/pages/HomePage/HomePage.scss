@@ -9,4 +9,8 @@
     $color-primary-light,
     $color-secondary-light-blue
   );
+
+  @include bp-tablet {
+    padding-top: 5rem;
+  }
 }

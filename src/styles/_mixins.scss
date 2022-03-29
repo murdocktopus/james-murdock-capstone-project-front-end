@@ -1,6 +1,8 @@
 // styles/_mixins.scss
 
-@use "./_typography" as *;
+@use "./variables" as *;
+@use "./colors" as *;
+@use "./typography" as *;
 
 @mixin bp-tablet {
   @media only screen and (min-width: 768px) {
@@ -48,6 +50,19 @@
     margin-left: 4rem;
     margin-right: 4rem;
   }
+}
+
+//card mixin
+@mixin card {
+  @include margin;
+  background-color: $color-primary-light;
+  filter: drop-shadow(4px 4px 4px $color-primary-dark);
+  margin-bottom: $padding-between-components-mobile;
+  padding: $padding-between-components-mobile;
+  @include display-flex(row, flex-start, flex-start);
+  flex-wrap: wrap;
+  gap: $padding-between-components-half-mobile
+    $padding-between-components-mobile;
 }
 
 //RESPONSIVE FONTS MIXINS

@@ -13,7 +13,7 @@ class Header extends Component {
       <header className="header">
         <div className="header__container">
           <Link to="/" className="header__nav-link">
-            <logo className="logo">scrollmate</logo>
+            <p className="logo">scrollmate</p>
           </Link>
 
           <div className="header__nav-item header__nav-item--hidden">

@@ -17,7 +17,7 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/search" exact component={SearchResultsPage} />
-            <Route path="/search/:id" exact component={SearchResultsPage} />
+            <Route path="/search/:searchTerm" component={SearchResultsPage} />
           </Switch>
           <MobileNav className="mobile-nav-component" />
           <Footer />

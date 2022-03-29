@@ -6,7 +6,9 @@ class Footer extends Component {
   render() {
     return (
       <div className="footer-container">
-        <footer className="footer"></footer>
+        <footer className="footer">
+          <p className="footer__text">copywrite scrollmate</p>
+        </footer>
       </div>
     );
   }

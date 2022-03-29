@@ -26,11 +26,14 @@
   &__nav-link {
     @include display-flex(row, center, center);
     gap: 10%;
+    text-decoration: none;
+    color: none;
   }
 
   &__nav-item {
     @include display-flex(row, center, center);
     gap: 10%;
+    padding: 0 5%;
   }
 }
 

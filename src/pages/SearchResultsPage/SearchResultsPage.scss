@@ -9,4 +9,17 @@
     $color-primary-light,
     $color-secondary-light-blue
   );
+
+  @include bp-tablet {
+    padding-top: 5rem;
+  }
+}
+
+.page-title {
+  // width: 100%;
+  @include margin;
+  // @include table-header;
+  font-weight: 700;
+  padding: $padding-between-components-half-mobile;
+  text-align: left;
 }
