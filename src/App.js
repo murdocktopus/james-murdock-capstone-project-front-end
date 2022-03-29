@@ -2,9 +2,11 @@ import "./App.css";
 import "./styles/_global.scss";
 import { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home/Home";
+import HomePage from "./pages/HomePage/HomePage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import MobileNav from "./components/MobileNav/MobileNav";
+import SearchResultsPage from "./pages/SearchResultsPage/SearchResultsPage";
 
 class App extends Component {
   render() {
@@ -13,19 +15,11 @@ class App extends Component {
         <Router>
           <Header />
           <Switch>
-            <Route path="/" exact component={Home} />
-            {/* <Route path="/warehouse/details/:id" component={WarehouseDetails} />
-            <Route path="/inventory" exact component={Inventory} />
-            <Route path="/warehouse/new" exact component={NewWarehouse} />
-            <Route path="/warehouse/edit/:id" component={EditWarehouse} />
-            <Route path="/inventory/new" component={NewInventoryItem} />
-            <Route path="/inventory/edit/:id" component={EditInventoryItem} />
-            <Route
-              path="/inventory/details/:id"
-              exact
-              component={InventoryItemDetails}
-            /> */}
+            <Route path="/" exact component={HomePage} />
+            <Route path="/search" exact component={SearchResultsPage} />
+            <Route path="/search/:id" exact component={SearchResultsPage} />
           </Switch>
+          <MobileNav className="mobile-nav-component" />
           <Footer />
         </Router>
       </div>

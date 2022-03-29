@@ -1,0 +1,41 @@
+// MobileNav.scss
+
+@use "../../styles/global" as *;
+
+.nav {
+  background-color: $color-primary-light;
+  height: $nav-height-mobile;
+  @include display-flex(row, space-between, center);
+  position: fixed;
+  overflow: hidden;
+  bottom: 0;
+  width: 100%;
+
+  @include bp-tablet {
+    display: none;
+  }
+
+  &__container {
+    @include display-flex(row, none, space-between);
+    flex-wrap: wrap;
+    @include margin;
+    width: 100%;
+    gap: 0;
+  }
+
+  &__nav-link {
+    @include display-flex(row, center, center);
+    gap: 10%;
+  }
+
+  &__nav-item {
+    @include display-flex(row, center, center);
+    gap: 10%;
+  }
+}
+
+.nav-icon {
+  height: 1.875rem;
+  filter: invert(13%) sepia(50%) saturate(2927%) hue-rotate(184deg)
+    brightness(94%) contrast(101%);
+}

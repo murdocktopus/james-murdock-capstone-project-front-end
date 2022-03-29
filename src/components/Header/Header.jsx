@@ -1,11 +1,11 @@
 import "./Header.scss";
 import { Link } from "react-router-dom";
 import { Component } from "react";
-import iconHome from "../../assets/images/home.svg";
-import iconGroup from "../../assets/images/group.svg";
-import iconComment from "../../assets/images/comment.svg";
-import iconBell from "../../assets/images/bell.svg";
-import iconAvatar from "../../assets/images/avatar-user-profile.svg";
+import headerIconHome from "../../assets/images/home.svg";
+import headerIconGroup from "../../assets/images/group.svg";
+import headerIconComment from "../../assets/images/comment.svg";
+import headerIconBell from "../../assets/images/bell.svg";
+import headerIconAvatar from "../../assets/images/avatar-user-profile.svg";
 
 class Header extends Component {
   render() {
@@ -18,29 +18,53 @@ class Header extends Component {
 
           <div className="header__nav-item header__nav-item--hidden">
             <Link to="/" className="header__nav-link">
-              <img src={iconHome} alt="Home_Icon" className="icon" />
-              <p className="icon__label icon__label--hidden">Home</p>
+              <img
+                src={headerIconHome}
+                alt="Home_header-Icon"
+                className="header-icon"
+              />
+              <p className="header-icon__label header-icon__label--hidden">
+                Home
+              </p>
             </Link>
           </div>
 
           <div className="header__nav-item header__nav-item--hidden">
             <Link to="/" className="header__nav-link">
-              <img src={iconGroup} alt="Groups_Icon" className="icon" />
-              <p className="icon__label icon__label--hidden">Groups</p>
+              <img
+                src={headerIconGroup}
+                alt="Groups_header-Icon"
+                className="header-icon"
+              />
+              <p className="header-icon__label header-icon__label--hidden">
+                Groups
+              </p>
             </Link>
           </div>
 
           <div className="header__nav-item header__nav-item--hidden">
             <Link to="/" className="header__nav-link">
-              <img src={iconComment} alt="Comment_Icon" className="icon" />
-              <p className="icon__label icon__label--hidden">Comment</p>
+              <img
+                src={headerIconComment}
+                alt="Comment_header-Icon"
+                className="header-icon"
+              />
+              <p className="header-icon__label header-icon__label--hidden">
+                Comment
+              </p>
             </Link>
           </div>
 
           <div className="header__nav-item">
             <Link to="/" className="header__nav-link">
-              <img src={iconBell} alt="Notifications_Icon" className="icon" />
-              <p className="icon__label icon__label--hidden">Notifications</p>
+              <img
+                src={headerIconBell}
+                alt="Notifications_header-Icon"
+                className="header-icon"
+              />
+              <p className="header-icon__label header-icon__label--hidden">
+                Notifications
+              </p>
             </Link>
           </div>
 
@@ -57,8 +81,14 @@ class Header extends Component {
 
           <div className="header__nav-item header__nav-item--hidden">
             <Link to="/" className="header__nav-link">
-              <img src={iconAvatar} alt="Profile_Icon" className="icon" />
-              <p className="icon__label icon__label--hidden">Profile</p>
+              <img
+                src={headerIconAvatar}
+                alt="Profile_header-Icon"
+                className="header-icon"
+              />
+              <p className="header-icon__label header-icon__label--hidden">
+                Profile
+              </p>
             </Link>
           </div>
         </div>

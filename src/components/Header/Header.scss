@@ -4,16 +4,26 @@
 
 .header {
   background-color: $color-primary-dark;
-  height: $header-height-mobile;
+  height: $header-search-height-mobile;
   @include display-flex(row, space-between, center);
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+
+  @include bp-tablet {
+    height: $header-height-mobile;
+  }
 
   &__container {
-    @include display-flex(row, center, space-between);
+    @include display-flex(row, none, space-between);
+    flex-wrap: wrap;
     @include margin;
     width: 100%;
     gap: 0;
 
     @include bp-tablet {
+      @include display-flex(row, center, space-between);
+      flex-wrap: nowrap;
       gap: 5%;
     }
 
@@ -47,7 +57,7 @@
   text-decoration: none;
 }
 
-.icon {
+.header-icon {
   height: 1.875rem;
   filter: brightness(0) invert(1);
 
@@ -68,11 +78,13 @@
 
 .search {
   height: fit-content;
+  width: 100%;
 
   &--tablet-display {
-    display: none;
+    // display: none;
 
     @include bp-tablet {
+      width: auto;
       display: inline-block;
       flex-grow: 2;
     }
