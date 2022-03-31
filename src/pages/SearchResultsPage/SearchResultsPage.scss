@@ -3,8 +3,9 @@
 @use "../../styles/global" as *;
 
 .test {
-  height: 60rem;
+  height: fit-content;
   padding-top: 7.8125rem;
+  padding-bottom: 5rem;
   background-image: linear-gradient(
     $color-primary-light,
     $color-secondary-light-blue
@@ -12,6 +13,7 @@
 
   @include bp-tablet {
     padding-top: 5rem;
+    padding-bottom: 0;
   }
 }
 

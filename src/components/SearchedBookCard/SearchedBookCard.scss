@@ -9,7 +9,6 @@
 
 .searched-book-card {
   @include card;
-  min-height: 12.5rem;
 
   &__icon {
     height: 4.375rem;
@@ -39,5 +38,17 @@
     display: -webkit-box;
     -webkit-line-clamp: 7;
     -webkit-box-orient: vertical;
+
+    @include bp-tablet {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    @include bp-desktop {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
   }
 }
