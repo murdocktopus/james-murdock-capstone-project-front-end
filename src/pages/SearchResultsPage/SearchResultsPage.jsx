@@ -3,6 +3,7 @@ import { Component } from "react";
 import SearchedBookCard from "../../components/SearchedBookCard/SearchedBookCard";
 import axios from "axios";
 import bookIcon from "../../assets/images/book-with-mark.svg";
+import { Link } from "react-router-dom";
 
 class SearchResultsPage extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class SearchResultsPage extends Component {
         }`
       )
       .then((response) => {
-        console.log(response.data.items);
+        console.table(response.data.items);
         this.setState({
           books: response.data.items,
           searchSubmitted: false,
@@ -69,21 +70,29 @@ class SearchResultsPage extends Component {
                   book.volumeInfo.publishedDate
               )
               .map((filteredBook) => {
+                // selectBook = (filteredBook) => {
+                //   this.setState({ selectedBook: filteredBook });
+                // };
                 return (
-                  <SearchedBookCard
-                    key={filteredBook.id}
-                    id={filteredBook.id}
-                    volumeInfo={filteredBook.volumeInfo}
-                    title={filteredBook.volumeInfo.title}
-                    author={
-                      filteredBook.volumeInfo.authors || ["No Author Listed"]
-                    }
-                    publishedDate={filteredBook.volumeInfo.publishedDate}
-                    description={filteredBook.volumeInfo.description}
-                    imageLinks={filteredBook.volumeInfo.imageLinks}
-                    pageCount={filteredBook.volumeInfo.pageCount}
-                    categories={filteredBook.volumeInfo.categories}
-                  />
+                  <Link
+                    to={"/book/" + filteredBook.id}
+                    // onClick={this.props.selectBook()}
+                  >
+                    <SearchedBookCard
+                      key={filteredBook.id}
+                      id={filteredBook.id}
+                      volumeInfo={filteredBook.volumeInfo}
+                      title={filteredBook.volumeInfo.title}
+                      author={
+                        filteredBook.volumeInfo.authors || ["No Author Listed"]
+                      }
+                      publishedDate={filteredBook.volumeInfo.publishedDate}
+                      description={filteredBook.volumeInfo.description}
+                      imageLinks={filteredBook.volumeInfo.imageLinks}
+                      pageCount={filteredBook.volumeInfo.pageCount}
+                      categories={filteredBook.volumeInfo.categories}
+                    />
+                  </Link>
                 );
               })}
         </div>

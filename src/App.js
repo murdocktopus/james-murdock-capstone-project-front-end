@@ -20,6 +20,7 @@ class App extends Component {
     books: [],
     searchTerm: "", // I make this params value?
     searchSubmitted: false,
+    selectedBook: [],
   };
 
   componentDidMount() {
@@ -53,6 +54,7 @@ class App extends Component {
         // <Redirect to={`/search/${this.state.searchTerm}`} />;
       }
     );
+    e.target.reset();
   };
 
   getBooks = () => {
@@ -85,6 +87,7 @@ class App extends Component {
             searchTerm={this.state.searchTerm}
             searchSubmitted={this.state.searchSubmitted}
           />
+
           <Switch>
             <Route path="/" exact>
               {this.state.searchSubmitted ? (
@@ -96,6 +99,8 @@ class App extends Component {
                       getBooks={this.getBooks}
                       searchTerm={this.searchTerm}
                       searchSubmitted={this.state.searchSubmitted}
+                      selectedBook={this.state.selectedBook}
+                      selectBook={this.selectBook}
                       {...routerProps}
                     />
                   )}
@@ -115,6 +120,8 @@ class App extends Component {
                       getBooks={this.getBooks}
                       searchTerm={this.searchTerm}
                       searchSubmitted={this.state.searchSubmitted}
+                      selectedBook={this.state.selectedBook}
+                      selectBook={this.selectBook}
                       {...routerProps}
                     />
                   )}
@@ -125,10 +132,30 @@ class App extends Component {
                   getBooks={this.getBooks}
                   searchTerm={this.searchTerm}
                   searchSubmitted={this.state.searchSubmitted}
+                  selectedBook={this.state.selectedBook}
                 />
               )}
             </Route>
-            <Route path="/book/:id" exact component={BookPage} />
+
+            <Route path={"/book/:id"} exact name="book-page">
+              {this.state.searchSubmitted ? (
+                <Redirect
+                  to={"/search/" + this.state.searchTerm}
+                  render={(routerProps) => (
+                    <SearchResultsPage
+                      books={this.state.books}
+                      getBooks={this.getBooks}
+                      searchTerm={this.searchTerm}
+                      searchSubmitted={this.state.searchSubmitted}
+                      selectedBook={this.state.selectedBook}
+                      {...routerProps}
+                    />
+                  )}
+                />
+              ) : (
+                <BookPage selectedBook={this.state.selectedBook} />
+              )}
+            </Route>
           </Switch>
           <MobileNav className="mobile-nav-component" />
           <Footer />
