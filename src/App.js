@@ -128,21 +128,7 @@ class App extends Component {
                 />
               )}
             </Route>
-
-            {/* <Route
-              path={"/search/:searchTerm"}
-              exact
-              render={(routerProps) => (
-                <SearchResultsPage
-                  books={this.state.books}
-                  getBooks={this.getBooks}
-                  searchTerm={this.searchTerm}
-                  searchSubmitted={this.state.searchSubmitted}
-                  {...routerProps}
-                />
-              )}
-            ></Route> */}
-            {/* <Route path="/book/:id" exact component={BookPage} /> */}
+            <Route path="/book/:id" exact component={BookPage} />
           </Switch>
           <MobileNav className="mobile-nav-component" />
           <Footer />
