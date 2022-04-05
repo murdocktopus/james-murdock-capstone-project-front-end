@@ -1,11 +1,7 @@
-import { Link } from "react-router-dom";
 import "./SearchedBookCard.scss";
-// import { Component } from "react";
-// import bookIcon from "../../assets/images/book-with-mark.svg";
 
 function SearchedBookCard(props) {
   return (
-    // <Link to={"/book/" + props.id}>
     <article className="searched-book-card">
       <img
         src={props.imageLinks && props.imageLinks.smallThumbnail}
@@ -25,7 +21,6 @@ function SearchedBookCard(props) {
       </div>
       <p className="searched-book-card__description">{props.description}</p>
     </article>
-    // </Link>
   );
 }
 

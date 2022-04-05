@@ -1,15 +1,22 @@
 import "./BookPage.scss";
 import { Component } from "react";
 import axios from "axios";
-
-const windowUrl = window.location.search;
-const params = new URLSearchParams(windowUrl);
-// params['id']
+import ExpandedBookCard from "../../components/ExpandedBookCard/ExpandedBookCard";
+import CommentsSection from "../../components/CommentsSection/CommentsSection";
 
 class BookPage extends Component {
   state = {
+    selectedBook: {},
     selectedBookId: window.location.pathname.slice(6),
+    selectedPageNumber: 0,
   };
+
+  componentDidMount() {
+    this.getBookById();
+    window.scrollTo(0, 0);
+  }
+
+  componentDidUpdate() {}
 
   getBookById = () => {
     axios
@@ -23,31 +30,26 @@ class BookPage extends Component {
         this.setState({
           selectedBook: response.data,
         });
-        console.log(this.state.book);
+        console.log(this);
       })
       .catch((err) => {
         console.log(err);
       });
   };
 
-  componentDidMount() {
-    console.log("BookPage.js Mount State:", this.state);
-    console.log(this.state);
-
-    this.getBookById();
-  }
-
-  componentDidUpdate() {
-    console.log("BookPage.js Update State:", this.state);
-    console.log(this.props);
-  }
-
   render() {
-    // console.log(props);
     return (
       <div className="book-page">
         <div className="test">
           <p>{this.state.selectedBookId}</p>
+          <ExpandedBookCard
+            selectedBook={this.state.selectedBook}
+            selectedPageNumber={this.state.selectedPageNumber}
+          />
+          <CommentsSection
+            selectedBook={this.state.selectedBook}
+            selectedPageNumber={this.state.selectedPageNumber}
+          />
         </div>
       </div>
     );

@@ -11,22 +11,16 @@ class SearchResultsPage extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props.books);
-    // console.log(this.props.match.params);
     this.getBooks();
-
     window.scrollTo(0, 0);
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log(this.props.match && this.props.searchsubmitted);
-    console.log(this.props.match && prevProps.match.params.searchTerm);
+  componentDidUpdate(prevProps) {
     if (
       this.props.match &&
       this.props.match.params.searchTerm !== this.props.match &&
       prevProps.match.params.searchTerm
     ) {
-      console.log("going");
       this.getBooks();
     } else {
       console.log("nope");
@@ -41,12 +35,11 @@ class SearchResultsPage extends Component {
         }`
       )
       .then((response) => {
-        console.table(response.data.items);
         this.setState({
           books: response.data.items,
           searchSubmitted: false,
         });
-        console.log(this.props.books);
+        // console.log(this.props.books);
       })
       .catch((err) => {
         console.log(err);
@@ -54,7 +47,6 @@ class SearchResultsPage extends Component {
   };
 
   render() {
-    console.log(this.props.searchTerm);
     return (
       <div className="SearchResultsPage">
         <div className="test">
@@ -70,14 +62,8 @@ class SearchResultsPage extends Component {
                   book.volumeInfo.publishedDate
               )
               .map((filteredBook) => {
-                // selectBook = (filteredBook) => {
-                //   this.setState({ selectedBook: filteredBook });
-                // };
                 return (
-                  <Link
-                    to={"/book/" + filteredBook.id}
-                    // onClick={this.props.selectBook()}
-                  >
+                  <Link to={"/book/" + filteredBook.id} key={filteredBook.id}>
                     <SearchedBookCard
                       key={filteredBook.id}
                       id={filteredBook.id}

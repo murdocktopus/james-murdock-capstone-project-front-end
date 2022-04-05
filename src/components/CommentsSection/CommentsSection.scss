@@ -1,0 +1,13 @@
+// CommentsSection.scss
+
+@use "../../styles/global" as *;
+
+.comment-section p,
+.comment-section h3 {
+  text-align: left;
+}
+
+.comment-card {
+  @include card;
+
+}

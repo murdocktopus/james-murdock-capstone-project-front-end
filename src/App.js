@@ -18,27 +18,16 @@ import axios from "axios";
 class App extends Component {
   state = {
     books: [],
-    searchTerm: "", // I make this params value?
+    searchTerm: "",
     searchSubmitted: false,
-    selectedBook: [],
+    selectedBook: {},
   };
 
   componentDidMount() {
-    console.log("App.js Mount State:", this.state);
-
     this.getBooks();
   }
 
-  componentDidUpdate(prevProps) {
-    console.log("App.js Update State:", this.state);
-    console.log(this.state.books);
-    // this.getBooks();
-    console.log(this.state);
-
-    // this.setState({
-    //   searchSubmitted: false,
-    // });
-  }
+  componentDidUpdate() {}
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -50,8 +39,6 @@ class App extends Component {
       },
       () => {
         this.getBooks();
-        // window.location = `http://localhost:3000/search/${this.state.searchTerm}`;
-        // <Redirect to={`/search/${this.state.searchTerm}`} />;
       }
     );
     e.target.reset();
@@ -153,7 +140,7 @@ class App extends Component {
                   )}
                 />
               ) : (
-                <BookPage selectedBook={this.state.selectedBook} />
+                <BookPage />
               )}
             </Route>
           </Switch>

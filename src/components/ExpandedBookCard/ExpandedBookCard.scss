@@ -1,0 +1,45 @@
+// SearchResultCard.scss
+
+@use "../../styles/global" as *;
+
+.expanded-book-card p,
+.expanded-book-card h3 {
+  text-align: left;
+}
+
+.expanded-book-card {
+  @include card;
+
+  &__icon {
+    // height: 4.375rem;
+    // filter: invert(13%) sepia(50%) saturate(2927%) hue-rotate(184deg)
+    //   brightness(94%) contrast(101%);
+  }
+
+  &__title-container {
+    @include display-flex(column, flex-start, space-between);
+    height: 3.75rem;
+    margin: 6px 0;
+  }
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__author {
+  }
+
+  &__subtitle {
+  }
+
+  &__description {
+    width: 100%;
+    overflow: hidden;
+
+    @include bp-tablet {
+    }
+
+    @include bp-desktop {
+    }
+  }
+}
