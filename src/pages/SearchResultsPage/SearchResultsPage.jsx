@@ -5,59 +5,87 @@ import axios from "axios";
 import bookIcon from "../../assets/images/book-with-mark.svg";
 
 class SearchResultsPage extends Component {
-  state = {
-    books: [],
-  };
+  constructor(props) {
+    super(props);
+  }
 
   componentDidMount() {
+    console.log(this.props.books);
+    // console.log(this.props.match.params);
     this.getBooks();
+
     window.scrollTo(0, 0);
   }
 
-  componentDidUpdate() {}
+  componentDidUpdate(prevProps, prevState) {
+    console.log(this.props.match && this.props.searchsubmitted);
+    console.log(this.props.match && prevProps.match.params.searchTerm);
+    if (
+      this.props.match &&
+      this.props.match.params.searchTerm !== this.props.match &&
+      prevProps.match.params.searchTerm
+    ) {
+      console.log("going");
+      this.getBooks();
+    } else {
+      console.log("nope");
+    }
+  }
 
-  getBooks() {
-    let searchTerm = this.props.match.params.searchTerm;
-    console.log(searchTerm);
+  getBooks = () => {
     axios
-      .get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`)
+      .get(
+        `https://www.googleapis.com/books/v1/volumes?q=${
+          this.props.match && this.props.match.params.searchTerm
+        }`
+      )
       .then((response) => {
-        // console.log(response.data);
-        let fullArr = response.data;
-        // let arr10 = fullArr.slice(0, 10);
-        console.log(fullArr);
+        console.log(response.data.items);
         this.setState({
-          books: response.data,
+          books: response.data.items,
+          searchSubmitted: false,
         });
+        console.log(this.props.books);
       })
-
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
   render() {
+    console.log(this.props.searchTerm);
     return (
       <div className="SearchResultsPage">
         <div className="test">
           <h1 className="page-title">Search Results</h1>
-          {this.state.books.items &&
-            this.state.books.items.map((book) => {
-              return (
-                <SearchedBookCard
-                  key={book.id}
-                  id={book.id}
-                  volumeInfo={book.volumeInfo}
-                  title={book.volumeInfo.title}
-                  author={book.volumeInfo.authors}
-                  publishedDate={book.volumeInfo.publishedDate}
-                  description={book.volumeInfo.description}
-                  imageLinks={book.volumeInfo.imageLinks || bookIcon}
-                  pageCount={book.volumeInfo.pageCount}
-                  categories={book.volumeInfo.categories}
-                />
-              );
-            })}
+          {this.props.books &&
+            this.props.books
+              .filter(
+                (book) =>
+                  book.volumeInfo &&
+                  book.volumeInfo.imageLinks &&
+                  book.volumeInfo.description &&
+                  book.volumeInfo.pageCount &&
+                  book.volumeInfo.publishedDate
+              )
+              .map((filteredBook) => {
+                return (
+                  <SearchedBookCard
+                    key={filteredBook.id}
+                    id={filteredBook.id}
+                    volumeInfo={filteredBook.volumeInfo}
+                    title={filteredBook.volumeInfo.title}
+                    author={
+                      filteredBook.volumeInfo.authors || ["No Author Listed"]
+                    }
+                    publishedDate={filteredBook.volumeInfo.publishedDate}
+                    description={filteredBook.volumeInfo.description}
+                    imageLinks={filteredBook.volumeInfo.imageLinks}
+                    pageCount={filteredBook.volumeInfo.pageCount}
+                    categories={filteredBook.volumeInfo.categories}
+                  />
+                );
+              })}
         </div>
       </div>
     );

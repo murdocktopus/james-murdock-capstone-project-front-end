@@ -1,0 +1,16 @@
+// BookPage.scss
+
+@use "../../styles/global" as *;
+
+.test {
+  height: 60rem;
+  padding-top: 7.8125rem;
+  background-image: linear-gradient(
+    $color-primary-light,
+    $color-secondary-light-blue
+  );
+
+  @include bp-tablet {
+    padding-top: 5rem;
+  }
+}

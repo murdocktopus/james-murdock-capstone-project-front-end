@@ -8,7 +8,9 @@ class SearchedBookCard extends Component {
   }
 
   render() {
-    console.log(this.props.imageLinks.smallThumbnail);
+    // console.log(this.props.imageLinks.smallThumbnail);
+
+    console.log(this.props.name);
 
     let bookImage =
       this.props.imageLinks && this.props.imageLinks.smallThumbnail;
@@ -22,7 +24,11 @@ class SearchedBookCard extends Component {
         />
         <div className="searched-book-card__title-container">
           <h3 className="searched-book-card__title">{this.props.title}</h3>
-          <p className="searched-book-card__author">{this.props.author}</p>
+          <p className="searched-book-card__author">
+            {this.props.author.reduce(
+              (accumulator, currentValue) => accumulator + " & " + currentValue
+            )}
+          </p>
           <p className="searched-book-card__subtitle">
             {this.props.publishedDate.slice(0, 4)}
           </p>
