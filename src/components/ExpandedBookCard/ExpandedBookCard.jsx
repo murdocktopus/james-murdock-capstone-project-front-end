@@ -45,7 +45,7 @@ function ExpandedBookCard(props) {
         <p className="expanded-book-card__subtitle">{bookPublisher}</p>
         <p className="expanded-book-card__subtitle">{bookPageNumber} Pages</p>
       </div>
-      <p className="expanded-book-card__description">{bookDescription}</p>
+      <div className="expanded-book-card__description">{bookDescription}</div>
     </article>
   );
 }
