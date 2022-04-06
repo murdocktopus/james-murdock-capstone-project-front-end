@@ -1,6 +1,9 @@
 import "./CommentsSection.scss";
+import axios from "axios";
 
 function CommentsSection(props) {
+  console.log("comment section props", props);
+
   return (
     <section className="comment-section">
       <p className="comment-section__title">Comment Section:</p>

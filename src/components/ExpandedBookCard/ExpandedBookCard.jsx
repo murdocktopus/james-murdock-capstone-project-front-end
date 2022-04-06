@@ -1,4 +1,5 @@
 import "./ExpandedBookCard.scss";
+var parse = require("html-react-parser");
 
 function ExpandedBookCard(props) {
   let bookImage =
@@ -31,6 +32,8 @@ function ExpandedBookCard(props) {
 
   //   let selectedPageNumber = props.selectedPageNumber && props.selectedPageNumber;
 
+  let htmlParseDescription = parse("<div>" + bookDescription + "</div>");
+
   return (
     <article className="expanded-book-card">
       <img
@@ -45,7 +48,9 @@ function ExpandedBookCard(props) {
         <p className="expanded-book-card__subtitle">{bookPublisher}</p>
         <p className="expanded-book-card__subtitle">{bookPageNumber} Pages</p>
       </div>
-      <div className="expanded-book-card__description">{bookDescription}</div>
+      <div className="expanded-book-card__description">
+        {htmlParseDescription}
+      </div>
     </article>
   );
 }

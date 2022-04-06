@@ -9,14 +9,18 @@ class BookPage extends Component {
     selectedBook: {},
     selectedBookId: window.location.pathname.slice(6),
     selectedPageNumber: 0,
+    selectedComments: {},
   };
 
   componentDidMount() {
     this.getBookById();
+    // this.getComments();
     window.scrollTo(0, 0);
   }
 
-  componentDidUpdate() {}
+  componentDidUpdate() {
+    console.log(this.state.selectedComments);
+  }
 
   getBookById = () => {
     axios
@@ -30,10 +34,31 @@ class BookPage extends Component {
         this.setState({
           selectedBook: response.data,
         });
-        console.log(this);
+        // console.log(
+        //   `${process.env.REACT_APP_API_URL}${this.state.selectedBookId}`
+        // );
       })
+      .then(
+        axios
+          .get(`${process.env.REACT_APP_API_URL}`)
+          .then((response) => {
+            console.log("All comments in API", response.data);
+            let allComments = response.data;
+            let filteredComments = allComments
+              .filter((comment) => comment.id === this.state.selectedBookId)
+              .map((filteredComment) => {
+                return filteredComment;
+              });
+            this.setState({
+              selectedComments: filteredComments,
+            });
+          })
+          .catch((err) => {
+            console.log("error 1 catch", err);
+          })
+      )
       .catch((err) => {
-        console.log(err);
+        console.log("error 2 catch", err);
       });
   };
 
@@ -48,7 +73,9 @@ class BookPage extends Component {
           />
           <CommentsSection
             selectedBook={this.state.selectedBook}
+            selectedBookId={this.state.selectedBookId}
             selectedPageNumber={this.state.selectedPageNumber}
+            selectedComments={this.state.selectedComments}
           />
         </div>
       </div>
