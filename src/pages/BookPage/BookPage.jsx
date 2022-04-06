@@ -9,7 +9,7 @@ class BookPage extends Component {
     selectedBook: {},
     selectedBookId: window.location.pathname.slice(6),
     selectedPageNumber: 0,
-    selectedComments: {},
+    selectedComments: [],
   };
 
   componentDidMount() {

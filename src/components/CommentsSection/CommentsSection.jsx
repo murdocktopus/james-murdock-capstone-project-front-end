@@ -1,18 +1,16 @@
+import CommentCard from "../CommentCard/CommentCard";
 import "./CommentsSection.scss";
-import axios from "axios";
 
 function CommentsSection(props) {
-  console.log("comment section props", props);
+  console.log("Comment Section props.selectedComments", props);
 
   return (
     <section className="comment-section">
       <p className="comment-section__title">Comment Section:</p>
-      <div className="comment-card">
-        <img className="comment-card__userimg" src="" alt="user_image" />
-        <p className="comment-card__username">username</p>
-        <p className="comment-card__timestamp">timestamp</p>
-        <p className="comment-card__comment">comment</p>
-      </div>
+      {props.selectedComments &&
+        props.selectedComments.map((comment) => {
+          return <CommentCard comment={comment} key={comment.commentId} />;
+        })}
     </section>
   );
 }
