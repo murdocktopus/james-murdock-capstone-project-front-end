@@ -3,6 +3,7 @@ import { Component } from "react";
 import axios from "axios";
 import ExpandedBookCard from "../../components/ExpandedBookCard/ExpandedBookCard";
 import CommentsSection from "../../components/CommentsSection/CommentsSection";
+import CommentForm from "../../components/CommentForm/CommentForm";
 
 class BookPage extends Component {
   state = {
@@ -14,7 +15,6 @@ class BookPage extends Component {
 
   componentDidMount() {
     this.getBookById();
-    // this.getComments();
     window.scrollTo(0, 0);
   }
 
@@ -62,6 +62,20 @@ class BookPage extends Component {
       });
   };
 
+  handleChange(e) {
+    console.log("You changed value.", e.target.value);
+    console.log(this.state.selectedPageNumber);
+    let pageNumber = e.target.value;
+    this.setState({
+      selectedPageNumber: pageNumber,
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log("You clicked submit.");
+  }
+
   render() {
     return (
       <div className="book-page">
@@ -70,6 +84,14 @@ class BookPage extends Component {
           <ExpandedBookCard
             selectedBook={this.state.selectedBook}
             selectedPageNumber={this.state.selectedPageNumber}
+          />
+          <CommentForm
+            selectedBook={this.state.selectedBook}
+            selectedBookId={this.state.selectedBookId}
+            selectedPageNumber={this.state.selectedPageNumber}
+            selectedComments={this.state.selectedComments}
+            handleSubmit={this.handleSubmit}
+            handleChange={this.handleChange}
           />
           <CommentsSection
             selectedBook={this.state.selectedBook}

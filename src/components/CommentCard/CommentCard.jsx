@@ -5,9 +5,14 @@ function CommentCard(props) {
   return (
     <article className="comment-card">
       {/* <img className="comment-card__userimg" src="" alt="user_image" /> */}
-      <p className="comment-card__username">{props.comment.name}</p>
-      <p className="comment-card__timestamp">{props.comment.timestamp}</p>
-      <p className="comment-card__comment">{props.comment.comment}</p>
+      <p className="comment-card__username">Name: {props.comment.name}</p>
+      <p className="comment-card__timestamp">
+        Time Posted: {props.comment.timestamp}
+      </p>
+      <p className="comment-card__comment">Comment: {props.comment.comment}</p>
+      <p className="comment-card__page-number">
+        Page {props.comment.pageNumber}
+      </p>
     </article>
   );
 }
