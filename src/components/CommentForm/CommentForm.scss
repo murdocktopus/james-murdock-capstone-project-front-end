@@ -10,4 +10,10 @@
 .comment-form-section {
   @include card;
 
+  @include bp-tablet {
+  }
+}
+
+.comment-form {
+ 
 }

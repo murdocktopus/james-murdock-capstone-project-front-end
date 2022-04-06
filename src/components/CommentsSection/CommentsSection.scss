@@ -5,9 +5,15 @@
 .comment-section p,
 .comment-section h3 {
   text-align: left;
+  // width: 100%;
 }
 
-.comment-card {
-  @include card;
+.comment-section {
+  @include margin;
+  @include display-flex(column, center, center);
 
+  @include bp-tablet {
+    gap: $padding-between-components-mobile;
+    // padding: 0 $padding-between-components-tablet;
+  }
 }

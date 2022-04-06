@@ -4,6 +4,7 @@ import React, { useState } from "react";
 function CommentForm(props) {
   const [pageNumber, setPageNumber] = useState(0);
   console.log("pagenumber", pageNumber);
+  console.log(props.handleFormSubmit);
 
   let pageCount =
     props.selectedBook.volumeInfo && props.selectedBook.volumeInfo.pageCount;
@@ -15,7 +16,7 @@ function CommentForm(props) {
         className="comment-form"
         id="commentForm"
         method="post"
-        // onSubmit={handleSubmit}
+        onSubmit={props.handleFormSubmit}
       >
         <label className="comment-form__label">
           Select a Page Number to see more of the discussion! {pageNumber}

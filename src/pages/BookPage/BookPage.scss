@@ -2,15 +2,20 @@
 
 @use "../../styles/global" as *;
 
-.test {
-  height: 60rem;
-  padding-top: 7.8125rem;
+.book-page {
+  // height: 60rem;
+  @include display-flex(column, center, center);
+  // gap: $padding-between-components-mobile;
+  padding-top: 8.8125rem;
+  padding-bottom: 5rem;
   background-image: linear-gradient(
     $color-primary-light,
     $color-secondary-light-blue
   );
 
   @include bp-tablet {
-    padding-top: 5rem;
+    padding-top: 6.625rem;
+    padding-bottom: $padding-between-components-mobile;
+    // gap: $padding-between-components-mobile;
   }
 }

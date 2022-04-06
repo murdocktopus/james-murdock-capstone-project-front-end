@@ -76,30 +76,63 @@ class BookPage extends Component {
     console.log("You clicked submit.");
   }
 
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    const page = event.target[0].value;
+    const name = event.target[1].value;
+    const comment = event.target[2].value;
+    const date = new Date();
+    console.log(event.target[1]);
+    console.table([
+      {
+        Page: page,
+        Name: name,
+        Comment: comment,
+        Timestamp: date,
+      },
+    ]);
+
+    axios
+      .post(`${process.env.REACT_APP_API_URL}`, {
+        id: this.state.selectedBookId,
+        page: page,
+        name: name,
+        comment: comment,
+        date: date,
+      })
+      .then((response) => {
+        console.log(response);
+        this.getBookById(); // refresh list of data after posting
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log("Comment Posted");
+    event.target.reset();
+  };
+
   render() {
     return (
       <div className="book-page">
-        <div className="test">
-          <p>{this.state.selectedBookId}</p>
-          <ExpandedBookCard
-            selectedBook={this.state.selectedBook}
-            selectedPageNumber={this.state.selectedPageNumber}
-          />
-          <CommentForm
-            selectedBook={this.state.selectedBook}
-            selectedBookId={this.state.selectedBookId}
-            selectedPageNumber={this.state.selectedPageNumber}
-            selectedComments={this.state.selectedComments}
-            handleSubmit={this.handleSubmit}
-            handleChange={this.handleChange}
-          />
-          <CommentsSection
-            selectedBook={this.state.selectedBook}
-            selectedBookId={this.state.selectedBookId}
-            selectedPageNumber={this.state.selectedPageNumber}
-            selectedComments={this.state.selectedComments}
-          />
-        </div>
+        <ExpandedBookCard
+          selectedBook={this.state.selectedBook}
+          selectedPageNumber={this.state.selectedPageNumber}
+        />
+        <CommentForm
+          selectedBook={this.state.selectedBook}
+          selectedBookId={this.state.selectedBookId}
+          selectedPageNumber={this.state.selectedPageNumber}
+          selectedComments={this.state.selectedComments}
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          handleFormSubmit={this.handleFormSubmit}
+        />
+        <CommentsSection
+          selectedBook={this.state.selectedBook}
+          selectedBookId={this.state.selectedBookId}
+          selectedPageNumber={this.state.selectedPageNumber}
+          selectedComments={this.state.selectedComments}
+        />
       </div>
     );
   }

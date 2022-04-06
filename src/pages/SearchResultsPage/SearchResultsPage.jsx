@@ -48,40 +48,38 @@ class SearchResultsPage extends Component {
 
   render() {
     return (
-      <div className="SearchResultsPage">
-        <div className="test">
-          <h1 className="page-title">Search Results</h1>
-          {this.props.books &&
-            this.props.books
-              .filter(
-                (book) =>
-                  book.volumeInfo &&
-                  book.volumeInfo.imageLinks &&
-                  book.volumeInfo.description &&
-                  book.volumeInfo.pageCount &&
-                  book.volumeInfo.publishedDate
-              )
-              .map((filteredBook) => {
-                return (
-                  <Link to={"/book/" + filteredBook.id} key={filteredBook.id}>
-                    <SearchedBookCard
-                      key={filteredBook.id}
-                      id={filteredBook.id}
-                      volumeInfo={filteredBook.volumeInfo}
-                      title={filteredBook.volumeInfo.title}
-                      author={
-                        filteredBook.volumeInfo.authors || ["No Author Listed"]
-                      }
-                      publishedDate={filteredBook.volumeInfo.publishedDate}
-                      description={filteredBook.volumeInfo.description}
-                      imageLinks={filteredBook.volumeInfo.imageLinks}
-                      pageCount={filteredBook.volumeInfo.pageCount}
-                      categories={filteredBook.volumeInfo.categories}
-                    />
-                  </Link>
-                );
-              })}
-        </div>
+      <div className="search-results-page">
+        <h1 className="page-title">Search Results</h1>
+        {this.props.books &&
+          this.props.books
+            .filter(
+              (book) =>
+                book.volumeInfo &&
+                book.volumeInfo.imageLinks &&
+                book.volumeInfo.description &&
+                book.volumeInfo.pageCount &&
+                book.volumeInfo.publishedDate
+            )
+            .map((filteredBook) => {
+              return (
+                <Link to={"/book/" + filteredBook.id} key={filteredBook.id}>
+                  <SearchedBookCard
+                    key={filteredBook.id}
+                    id={filteredBook.id}
+                    volumeInfo={filteredBook.volumeInfo}
+                    title={filteredBook.volumeInfo.title}
+                    author={
+                      filteredBook.volumeInfo.authors || ["No Author Listed"]
+                    }
+                    publishedDate={filteredBook.volumeInfo.publishedDate}
+                    description={filteredBook.volumeInfo.description}
+                    imageLinks={filteredBook.volumeInfo.imageLinks}
+                    pageCount={filteredBook.volumeInfo.pageCount}
+                    categories={filteredBook.volumeInfo.categories}
+                  />
+                </Link>
+              );
+            })}
       </div>
     );
   }

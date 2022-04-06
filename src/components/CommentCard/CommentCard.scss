@@ -8,6 +8,22 @@
 }
 
 .comment-card {
-  @include card;
+  @include bp-tablet {
+    width: 100%;
+  }
 
+  &__container {
+    background-color: $color-primary-light;
+    filter: drop-shadow(4px 4px 4px $color-primary-dark);
+    margin-bottom: $padding-between-components-mobile;
+    padding: $padding-between-components-mobile;
+    @include display-flex(row, flex-start, flex-start);
+    flex-wrap: wrap;
+    gap: $padding-between-components-half-mobile
+      $padding-between-components-mobile;
+    @include bp-tablet {
+      // width: 100%;
+      // padding: $padding-between-components-tablet;
+    }
+  }
 }
