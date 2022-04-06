@@ -2,6 +2,10 @@
 
 @use "../../styles/global" as *;
 
+a {
+  color: inherit;
+}
+
 .nav {
   background-color: $color-primary-light;
   height: $nav-height-mobile;

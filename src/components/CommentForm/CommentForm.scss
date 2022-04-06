@@ -7,10 +7,19 @@
   text-align: left;
 }
 
+input {
+  color: $color-supporting-grey;
+  @include font-mobile-p3-body-small;
+}
+
 .comment-form-section {
   @include card;
   @include bp-tablet {
-    width: 100%;
+    // margin: 0;
+  }
+
+  @include bp-desktop {
+    margin: 2rem 0;
   }
 }
 
@@ -23,6 +32,7 @@
     // width: 100%;
     text-align: center;
     align-self: center;
+    @include font-mobile-p1-body-large;
   }
 
   &__div {
@@ -32,13 +42,19 @@
   }
 
   &__label {
+    @include font-mobile-p3-body-small;
   }
 
   &__comment {
     width: 97.5%;
+    @include font-mobile-p3-body-small;
+    color: $color-supporting-grey;
   }
 
   &__button {
     width: 100%;
+    background-color: $color-secondary-light-blue;
+    color: $color-background-white;
+    @include font-mobile-p1-body-large;
   }
 }

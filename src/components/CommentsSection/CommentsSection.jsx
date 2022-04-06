@@ -6,7 +6,7 @@ function CommentsSection(props) {
 
   return (
     <section className="comment-section">
-      <p className="comment-section__title">Comment Section:</p>
+      <p className="comment-section__title">Comments</p>
       {props.selectedComments &&
         props.selectedComments.map((comment) => {
           return <CommentCard comment={comment} key={comment.commentId} />;

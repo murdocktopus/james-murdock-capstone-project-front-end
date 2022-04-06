@@ -16,4 +16,10 @@
     gap: $padding-between-components-mobile;
     // padding: 0 $padding-between-components-tablet;
   }
+
+  &__title {
+    @include font-mobile-h2-subheader;
+    color: $color-background-white;
+    padding-bottom: $padding-between-components-mobile;
+  }
 }

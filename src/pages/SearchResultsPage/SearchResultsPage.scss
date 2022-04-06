@@ -21,7 +21,12 @@
   // width: 100%;
   @include margin;
   // @include table-header;
-  font-weight: 700;
+  // font-weight: 700;
+  @include font-mobile-body-h3-labels-link-buttons;
   padding: $padding-between-components-half-mobile;
   text-align: left;
+
+  @include bp-tablet {
+    @include font-mobile-h2-subheader;
+  }
 }

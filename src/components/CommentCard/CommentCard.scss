@@ -28,15 +28,19 @@
 
   &__username {
     width: 100%;
+    @include font-mobile-labels-h4-table-header;
   }
 
   &__comment {
     width: 100%;
+    @include font-mobile-p3-body-small;
   }
 
   &__page-number {
+    @include font-mobile-p3-body-small;
   }
 
   &__timestamp {
+    @include font-mobile-p3-body-small;
   }
 }

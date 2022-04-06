@@ -2,7 +2,9 @@
 
 @use "../../styles/global" as *;
 
-a { color: inherit; }
+a {
+  color: inherit;
+}
 
 .searched-book-card p,
 .searched-book-card h3 {
@@ -13,13 +15,13 @@ a { color: inherit; }
   @include card;
   text-decoration: none;
 
+  @include bp-tablet {
+    margin: 0 auto $padding-between-components-tablet auto;
+  }
+
   &__icon {
     height: 4.375rem;
-    // filter: invert(13%) sepia(50%) saturate(2927%) hue-rotate(184deg)
-    //   brightness(94%) contrast(101%);
-
     @include bp-tablet {
-
     }
   }
 
@@ -45,17 +47,20 @@ a { color: inherit; }
     display: -webkit-box;
     -webkit-line-clamp: 7;
     -webkit-box-orient: vertical;
+    @include font-mobile-p3-body-small;
 
     @include bp-tablet {
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
+      @include font-mobile-p2-body-medium;
     }
 
     @include bp-desktop {
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
+      @include font-mobile-p1-body-large;
     }
   }
 }

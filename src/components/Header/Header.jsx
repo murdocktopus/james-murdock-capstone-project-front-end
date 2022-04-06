@@ -80,6 +80,7 @@ function Header(props) {
               placeholder="Search..."
               name="search"
               id="site-search"
+              autoComplete="off"
             />
             <button type="submit" value="submit" hidden></button>
           </form>

@@ -12,6 +12,9 @@
   @include display-flex(column, center, center);
   gap: $padding-between-components-mobile;
 
+  @include bp-tablet {
+  }
+
   &__icon {
     width: 60%;
     padding: 1.5rem 0 $padding-between-components-mobile 0;
@@ -19,9 +22,6 @@
     @include bp-tablet {
       width: auto;
     }
-    // height: 4.375rem;
-    // filter: invert(13%) sepia(50%) saturate(2927%) hue-rotate(184deg)
-    //   brightness(94%) contrast(101%);
   }
 
   &__title-container {
@@ -31,18 +31,29 @@
   }
 
   &__info-div {
-    @include display-flex(row, flex-start, flex-start);
+    @include display-flex(row, center, flex-start);
     flex-wrap: wrap;
     width: 100%;
   }
 
   &__title {
-    font-weight: bold;
     padding: 0.1875rem 0;
+    @include font-mobile-labels-h4-table-header;
+
+    @include bp-tablet {
+      @include font-tablet-desktop-h2-subheader;
+      font-size: 2rem;
+    }
   }
 
   &__subtitle {
     padding: 0.1875rem 0;
+    @include font-mobile-p3-body-small;
+
+    @include bp-tablet {
+      @include font-tablet-desktop-p3-body-small;
+      font-size: 1.75rem;
+    }
 
     &--new-line {
       width: 100%;
@@ -52,8 +63,10 @@
   &__description {
     width: 100%;
     overflow: hidden;
+    @include font-mobile-p3-body-small;
 
     @include bp-tablet {
+      @include font-tablet-desktop-p3-body-small;
     }
 
     @include bp-desktop {

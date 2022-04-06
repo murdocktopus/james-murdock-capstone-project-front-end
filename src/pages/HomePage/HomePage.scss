@@ -12,5 +12,39 @@
 
   @include bp-tablet {
     padding-top: 5rem;
+    height: 74vh;
+  }
+
+  &__titles-container {
+    position: fixed;
+    height: 63vh;
+    @include display-flex(column, center, center);
+    width: 100%;
+
+    @include bp-tablet {
+      height: 70vh;
+    }
+  }
+
+  &__title {
+    @include font-mobile-h2-subheader;
+    color: $color-primary-dark;
+    padding: 0 $padding-between-components-mobile;
+
+    @include bp-tablet {
+      @include font-tablet-desktop-h2-subheader;
+      padding: 0 $padding-between-components-tablet;
+    }
+  }
+
+  &__subtitle {
+    @include font-mobile-p2-body-medium;
+    color: $color-primary-dark;
+    padding: 0 $padding-between-components-mobile;
+
+    @include bp-tablet {
+      @include font-tablet-desktop-p2-body-medium;
+      padding: 0 $padding-between-components-tablet;
+    }
   }
 }
