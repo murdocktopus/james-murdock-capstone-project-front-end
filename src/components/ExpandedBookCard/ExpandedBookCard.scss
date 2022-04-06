@@ -9,27 +9,44 @@
 
 .expanded-book-card {
   @include card;
+  @include display-flex(column, center, center);
+  gap: $padding-between-components-mobile;
 
   &__icon {
+    width: 60%;
+    padding: 1.5rem 0 $padding-between-components-mobile 0;
+
+    @include bp-tablet {
+      width: auto;
+    }
     // height: 4.375rem;
     // filter: invert(13%) sepia(50%) saturate(2927%) hue-rotate(184deg)
     //   brightness(94%) contrast(101%);
   }
 
   &__title-container {
-    @include display-flex(column, flex-start, space-between);
-    height: 3.75rem;
-    margin: 6px 0;
+    @include display-flex(row, flex-start, flex-start);
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  &__info-div {
+    @include display-flex(row, flex-start, flex-start);
+    flex-wrap: wrap;
+    width: 100%;
   }
 
   &__title {
     font-weight: bold;
-  }
-
-  &__author {
+    padding: 0.1875rem 0;
   }
 
   &__subtitle {
+    padding: 0.1875rem 0;
+
+    &--new-line {
+      width: 100%;
+    }
   }
 
   &__description {

@@ -18,37 +18,50 @@ function CommentForm(props) {
         method="post"
         onSubmit={props.handleFormSubmit}
       >
-        <label className="comment-form__label">
-          Select a Page Number to see more of the discussion! {pageNumber}
-        </label>
-        <input
-          className="comment-form__comment"
-          type="number"
-          name="quantity"
-          min="0"
-          max={pageCount}
-          defaultValue="0"
-          placeholder={"0- " + pageCount}
-          onChange={(e) => setPageNumber(e.target.value)}
-          //   onChange={handleChange}
-        />
-
-        <label className="comment-form__label">JOIN THE DISCUSSION</label>
-        <input
-          className="comment-form__comment"
-          type="text"
-          name="name"
-          placeholder="Name"
-          autoComplete="off"
-          required
-        />
-        <input
-          className="comment-form__comment"
-          type="text-area"
-          name="comment"
-          placeholder="Comment"
-          required
-        />
+        <p className="comment-form__title">JOIN THE DISCUSSION:</p>
+        <div className="comment-form__div">
+          <label className="comment-form__label" htmlFor="quantity">
+            Page:
+            {/* {pageNumber} */}
+          </label>
+          <input
+            id="quantity"
+            className="comment-form__comment"
+            type="number"
+            name="quantity"
+            min="0"
+            max={pageCount}
+            defaultValue="0"
+            placeholder={"0- " + pageCount}
+            onChange={(e) => setPageNumber(e.target.value)}
+            //   onChange={handleChange}
+          />
+        </div>
+        <div className="comment-form__div">
+          <label className="comment-form__label" htmlFor="name">
+            Name:
+          </label>
+          <input
+            className="comment-form__comment"
+            type="text"
+            name="name"
+            placeholder="Name"
+            autoComplete="off"
+            required
+          />
+        </div>
+        <div className="comment-form__div">
+          <label className="comment-form__label" htmlFor="comment">
+            Comment:
+          </label>
+          <textarea
+            className="comment-form__comment"
+            type="text-area"
+            name="comment"
+            placeholder="Comment"
+            required
+          />
+        </div>
         <input type="submit" className="comment-form__button" value="submit" />
       </form>
     </section>

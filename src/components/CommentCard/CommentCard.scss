@@ -17,13 +17,26 @@
     filter: drop-shadow(4px 4px 4px $color-primary-dark);
     margin-bottom: $padding-between-components-mobile;
     padding: $padding-between-components-mobile;
-    @include display-flex(row, flex-start, flex-start);
+    @include display-flex(row, flex-start, space-between);
     flex-wrap: wrap;
-    gap: $padding-between-components-half-mobile
-      $padding-between-components-mobile;
+    gap: $padding-between-components-half-mobile 0;
     @include bp-tablet {
       // width: 100%;
       // padding: $padding-between-components-tablet;
     }
+  }
+
+  &__username {
+    width: 100%;
+  }
+
+  &__comment {
+    width: 100%;
+  }
+
+  &__page-number {
+  }
+
+  &__timestamp {
   }
 }

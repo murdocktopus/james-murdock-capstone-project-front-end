@@ -1,21 +1,20 @@
 import "./CommentCard.scss";
 
 function CommentCard(props) {
+  const options = { year: "numeric", month: "2-digit", day: "2-digit" };
   //   console.log(props.comment.comment);
   return (
     <article className="comment-card">
       <div className="comment-card__container">
         {/* <img className="comment-card__userimg" src="" alt="user_image" /> */}
-        <p className="comment-card__username">Name: {props.comment.name}</p>
-        <p className="comment-card__timestamp">
-          Time Posted: {props.comment.timestamp}
-        </p>
+        <p className="comment-card__username">{props.comment.name} says:</p>
         <p className="comment-card__comment">
-          Comment: {props.comment.comment}
+          &quot;{props.comment.comment}&quot;
         </p>
         <p className="comment-card__page-number">
-          Page {props.comment.pageNumber}
+          on page {props.comment.pageNumber}&nbsp;
         </p>
+        <p className="comment-card__timestamp">{props.comment.timestamp}</p>
       </div>
     </article>
   );

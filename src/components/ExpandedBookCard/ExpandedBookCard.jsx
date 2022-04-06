@@ -42,14 +42,29 @@ function ExpandedBookCard(props) {
         className="expanded-book-card__icon"
       />
       <div className="expanded-book-card__title-container">
-        <h3 className="expanded-book-card__title">{bookTitle}</h3>
-        <p className="expanded-book-card__author">{bookAuthor}</p>
-        <p className="expanded-book-card__subtitle">{bookDate}</p>
-        <p className="expanded-book-card__subtitle">{bookPublisher}</p>
-        <p className="expanded-book-card__subtitle">{bookPageNumber} Pages</p>
+        <div className="expanded-book-card__info-div">
+          <h3 className="expanded-book-card__title">{bookTitle}</h3>
+          <p className="expanded-book-card__subtitle">&nbsp;by</p>
+          <p className="expanded-book-card__title">&nbsp;{bookAuthor}</p>
+        </div>
+        <div className="expanded-book-card__info-div">
+          <p className="expanded-book-card__subtitle">Published in&nbsp;</p>
+          <p className="expanded-book-card__subtitle">{bookDate} by&nbsp;</p>
+          <p className="expanded-book-card__subtitle expanded-book-card__subtitle--new-line">
+            {bookPublisher}&nbsp;
+          </p>
+        </div>
+        <div className="expanded-book-card__info-div">
+          <p className="expanded-book-card__subtitle expanded-book-card__subtitle--new-line">
+            {bookPageNumber} Pages
+          </p>
+        </div>
       </div>
       <div className="expanded-book-card__description">
-        {htmlParseDescription}
+        <p className="expanded-book-card__title">Book Description:</p>
+        <p className="expanded-book-card__description-text">
+          {htmlParseDescription}
+        </p>
       </div>
     </article>
   );

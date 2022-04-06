@@ -4,6 +4,7 @@ import axios from "axios";
 import ExpandedBookCard from "../../components/ExpandedBookCard/ExpandedBookCard";
 import CommentsSection from "../../components/CommentsSection/CommentsSection";
 import CommentForm from "../../components/CommentForm/CommentForm";
+const options = { year: "numeric", month: "2-digit", day: "2-digit" };
 
 class BookPage extends Component {
   state = {
@@ -81,7 +82,7 @@ class BookPage extends Component {
     const page = event.target[0].value;
     const name = event.target[1].value;
     const comment = event.target[2].value;
-    const date = new Date();
+    const date = new Date().toLocaleDateString("en-US", options);
     console.log(event.target[1]);
     console.table([
       {
