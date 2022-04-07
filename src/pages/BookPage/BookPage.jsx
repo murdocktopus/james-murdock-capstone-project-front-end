@@ -10,7 +10,7 @@ class BookPage extends Component {
   state = {
     selectedBook: {},
     selectedBookId: window.location.pathname.slice(6),
-    selectedPageNumber: 0,
+    selectedPageNumber: "0",
     selectedComments: [],
   };
 
@@ -47,6 +47,7 @@ class BookPage extends Component {
             let allComments = response.data;
             let filteredComments = allComments
               .filter((comment) => comment.id === this.state.selectedBookId)
+              .reverse()
               .map((filteredComment) => {
                 return filteredComment;
               });
@@ -62,15 +63,6 @@ class BookPage extends Component {
         console.log("error 2 catch", err);
       });
   };
-
-  // handleChange(e) {
-  //   console.log("You changed value.", e.target.value);
-  //   console.log(this.state.selectedPageNumber);
-  //   let pageNumber = e.target.value;
-  //   this.setState({
-  //     selectedPageNumber: pageNumber,
-  //   });
-  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -113,7 +105,8 @@ class BookPage extends Component {
   };
 
   setPageNumber = (num) => {
-    this.setState({ selectedPageNumber: num });
+    let numInt = parseInt(num);
+    this.setState({ selectedPageNumber: numInt });
   };
 
   render() {
