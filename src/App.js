@@ -13,6 +13,7 @@ import Footer from "./components/Footer/Footer";
 import MobileNav from "./components/MobileNav/MobileNav";
 import SearchResultsPage from "./pages/SearchResultsPage/SearchResultsPage";
 import BookPage from "./pages/BookPage/BookPage";
+import GroupsPage from "./pages/GroupsPage/GroupsPage";
 import axios from "axios";
 
 class App extends Component {
@@ -141,6 +142,26 @@ class App extends Component {
                 />
               ) : (
                 <BookPage />
+              )}
+            </Route>
+
+            <Route path={"/groups"} name="groups-page">
+              {this.state.searchSubmitted ? (
+                <Redirect
+                  to={"/search/" + this.state.searchTerm}
+                  render={(routerProps) => (
+                    <SearchResultsPage
+                      books={this.state.books}
+                      getBooks={this.getBooks}
+                      searchTerm={this.searchTerm}
+                      searchSubmitted={this.state.searchSubmitted}
+                      selectedBook={this.state.selectedBook}
+                      {...routerProps}
+                    />
+                  )}
+                />
+              ) : (
+                <GroupsPage />
               )}
             </Route>
           </Switch>

@@ -35,9 +35,6 @@ class BookPage extends Component {
         this.setState({
           selectedBook: response.data,
         });
-        // console.log(
-        //   `${process.env.REACT_APP_API_URL}${this.state.selectedBookId}`
-        // );
       })
       .then(
         axios
