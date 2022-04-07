@@ -11,8 +11,13 @@
   @include card;
   @include display-flex(column, center, center);
   gap: $padding-between-components-mobile;
+  width: 80vw;
 
   @include bp-tablet {
+    width: auto;
+    @include display-flex(row, flex-start, flex-start);
+    flex-wrap: wrap;
+    padding: $padding-between-components-tablet;
   }
 
   &__icon {
@@ -21,6 +26,7 @@
 
     @include bp-tablet {
       width: auto;
+      padding: 0;
     }
   }
 
@@ -28,6 +34,12 @@
     @include display-flex(row, flex-start, flex-start);
     flex-wrap: wrap;
     width: 100%;
+
+    @include bp-tablet {
+      width: 70%;
+      @include display-flex(column, flex-start, flex-start);
+      gap: $padding-between-components-half-mobile;
+    }
   }
 
   &__info-div {
@@ -57,6 +69,10 @@
 
     &--new-line {
       width: 100%;
+
+      @include bp-tablet {
+        width: auto;
+      }
     }
   }
 

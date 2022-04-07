@@ -13,20 +13,43 @@ input {
 }
 
 .comment-form-section {
-  @include card;
+  // @include margin;
+  background-color: $color-primary-light;
+  // filter: drop-shadow(4px 4px 4px $color-primary-dark);
+  margin-bottom: $padding-between-components-mobile;
+  padding: $padding-between-components-mobile;
+  // @include display-flex(row, flex-start, flex-start);
+  // flex-wrap: wrap;
+  // gap: $padding-between-components-half-mobile
+  width: 80vw;
+  margin: 0 $padding-between-components-tablet;
   @include bp-tablet {
-    // margin: 0;
+    // @include display-flex(column, flex-start, flex-start);
+    margin: $padding-between-components-mobile
+      $padding-between-components-mobile 0 $padding-between-components-mobile;
+    width: 89vw;
+    // width: 100%;
   }
 
   @include bp-desktop {
-    margin: 2rem 0;
+    margin: $padding-between-components-tablet auto 0 auto;
+    max-width: 66rem;
+    // padding: 4rem 0;
   }
+}
+
+.comment-form-container {
+  width: 100%;
 }
 
 .comment-form {
   @include display-flex(row, flex-start, center);
   flex-wrap: wrap;
   gap: 1rem;
+  width: 100%;
+
+  @include bp-tablet {
+  }
 
   &__title {
     // width: 100%;
@@ -39,16 +62,35 @@ input {
     @include display-flex(column, flex-start, center);
     gap: 0.5rem;
     width: 100%;
+
+    @include bp-tablet {
+      @include display-flex(row, center, center);
+      flex-wrap: wrap;
+    }
   }
 
   &__label {
     @include font-mobile-p3-body-small;
+    font-weight: 700;
+    color: $color-primary-dark;
+
+    @include bp-tablet {
+      width: 100%;
+      text-align: left;
+      padding: 0 $padding-between-components-mobile;
+    }
   }
 
   &__comment {
     width: 97.5%;
     @include font-mobile-p3-body-small;
     color: $color-supporting-grey;
+    border: 0.125rem solid $color-supporting-grey;
+    padding: 0.625rem;
+
+    @include bp-tablet {
+      width: 86vw;
+    }
   }
 
   &__button {

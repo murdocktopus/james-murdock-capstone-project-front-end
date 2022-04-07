@@ -12,6 +12,7 @@
     $color-primary-light,
     $color-secondary-light-blue
   );
+  width: 100%;
 
   @include bp-tablet {
     padding-top: 6.625rem;

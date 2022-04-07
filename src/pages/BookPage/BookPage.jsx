@@ -63,14 +63,14 @@ class BookPage extends Component {
       });
   };
 
-  handleChange(e) {
-    console.log("You changed value.", e.target.value);
-    console.log(this.state.selectedPageNumber);
-    let pageNumber = e.target.value;
-    this.setState({
-      selectedPageNumber: pageNumber,
-    });
-  }
+  // handleChange(e) {
+  //   console.log("You changed value.", e.target.value);
+  //   console.log(this.state.selectedPageNumber);
+  //   let pageNumber = e.target.value;
+  //   this.setState({
+  //     selectedPageNumber: pageNumber,
+  //   });
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -112,6 +112,10 @@ class BookPage extends Component {
     event.target.reset();
   };
 
+  setPageNumber = (num) => {
+    this.setState({ selectedPageNumber: num });
+  };
+
   render() {
     return (
       <div className="book-page">
@@ -125,8 +129,9 @@ class BookPage extends Component {
           selectedPageNumber={this.state.selectedPageNumber}
           selectedComments={this.state.selectedComments}
           handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
+          // handleChange={this.handleChange}
           handleFormSubmit={this.handleFormSubmit}
+          setPageNumber={this.setPageNumber}
         />
         <CommentsSection
           selectedBook={this.state.selectedBook}

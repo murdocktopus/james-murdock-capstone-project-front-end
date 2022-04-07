@@ -8,6 +8,7 @@
 }
 
 .comment-card {
+  @include display-flex(column, center, center);
   @include bp-tablet {
     width: 100%;
   }
@@ -15,14 +16,24 @@
   &__container {
     background-color: $color-primary-light;
     filter: drop-shadow(4px 4px 4px $color-primary-dark);
-    margin-bottom: $padding-between-components-mobile;
+    margin: 0 $padding-between-components-mobile
+      $padding-between-components-mobile $padding-between-components-mobile;
     padding: $padding-between-components-mobile;
     @include display-flex(row, flex-start, space-between);
     flex-wrap: wrap;
     gap: $padding-between-components-half-mobile 0;
+    width: 80vw;
+
     @include bp-tablet {
-      // width: 100%;
+      margin: 0 $padding-between-components-mobile
+        $padding-between-components-mobile $padding-between-components-mobile;
+      width: 96%;
       // padding: $padding-between-components-tablet;
+    }
+
+    @include bp-desktop {
+      width: 100%;
+      margin: 0 0 $padding-between-components-tablet 0;
     }
   }
 

@@ -10,7 +10,7 @@
 
 .comment-section {
   @include margin;
-  @include display-flex(column, center, center);
+  // @include display-flex(column, center, center);
 
   @include bp-tablet {
     gap: $padding-between-components-mobile;
@@ -20,6 +20,9 @@
   &__title {
     @include font-mobile-h2-subheader;
     color: $color-background-white;
-    padding-bottom: $padding-between-components-mobile;
+    padding: $padding-between-components-mobile;
+    text-align: center;
+    // width: 100%;
+    @include display-flex(column, center, center);
   }
 }

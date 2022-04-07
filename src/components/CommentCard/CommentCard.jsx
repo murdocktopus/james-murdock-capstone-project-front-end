@@ -2,7 +2,7 @@ import "./CommentCard.scss";
 
 function CommentCard(props) {
   const options = { year: "numeric", month: "2-digit", day: "2-digit" };
-  //   console.log(props.comment.comment);
+  console.log(props);
   return (
     <article className="comment-card">
       <div className="comment-card__container">
