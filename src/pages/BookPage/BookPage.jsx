@@ -72,6 +72,7 @@ class BookPage extends Component {
     const name = event.target[1].value;
     const comment = event.target[2].value;
     const date = new Date().toLocaleDateString("en-US", options);
+    const bookName = this.state.selectedBook.volumeInfo.title;
     console.log(event.target[1]);
     console.table([
       {
@@ -79,6 +80,7 @@ class BookPage extends Component {
         Name: name,
         Comment: comment,
         Timestamp: date,
+        bookName: bookName,
       },
     ]);
 
@@ -89,6 +91,7 @@ class BookPage extends Component {
         name: name,
         comment: comment,
         date: date,
+        bookName: this.state.selectedBook.volumeInfo.title,
       })
       .then((response) => {
         console.log(response);

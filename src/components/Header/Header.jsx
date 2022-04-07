@@ -31,7 +31,7 @@ function Header(props) {
           </div>
 
           <div className="header__nav-item header__nav-item--hidden">
-            <Link to="/" className="header__nav-link">
+            <Link to="/groups" className="header__nav-link">
               <img
                 src={headerIconGroup}
                 alt="Groups_header-Icon"

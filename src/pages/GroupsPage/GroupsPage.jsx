@@ -25,6 +25,11 @@ class GroupsPage extends Component {
         this.setState({
           allComments: allComments,
         });
+        axios.get(
+          `https://www.googleapis.com/books/v1/volumes/${
+            this.state.selectedBookId && this.state.selectedBookId
+          }`
+        );
       })
       .catch((err) => {
         console.log("error 1 catch", err);
@@ -33,26 +38,29 @@ class GroupsPage extends Component {
 
   render() {
     return (
-      <div className="groups-page">
-        <p className="comment-section__title">Comments</p>
+      <div className="groups-section">
+        <p className="groups-section__title">New Comments</p>
         {this.state &&
-          this.state.allComments.map((comment) => {
-            return (
-              <article className="comment-card">
-                <div className="comment-card__container">
-                  {/* <img className="comment-card__userimg" src="" alt="user_image" /> */}
-                  <p className="comment-card__username">{comment.name} says:</p>
-                  <p className="comment-card__comment">
-                    &quot;{comment.comment}&quot;
-                  </p>
-                  <p className="comment-card__page-number">
-                    on page {comment.pageNumber}&nbsp;
-                  </p>
-                  <p className="comment-card__timestamp">{comment.timestamp}</p>
-                </div>
-              </article>
-            );
-          })}
+          this.state.allComments
+            .filter((comment) => comment.pageNumber <= 0)
+            .reverse()
+            .map((comment) => {
+              return (
+                <article className="new-comment-card" key={comment.commentId}>
+                  <div className="new-comment-card__container">
+                    <p className="new-comment-card__username">
+                      {comment.bookName}
+                    </p>
+                    <p className="new-comment-card__comment">
+                      {comment.name} says: &quot;{comment.comment}&quot;
+                    </p>
+                    <p className="new-comment-card__timestamp">
+                      {comment.timestamp}
+                    </p>
+                  </div>
+                </article>
+              );
+            })}
       </div>
     );
   }

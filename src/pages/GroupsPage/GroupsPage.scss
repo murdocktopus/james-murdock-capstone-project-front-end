@@ -1,0 +1,78 @@
+// GroupsPage.scss
+
+@use "../../styles/global" as *;
+
+.groups-section {
+  height: fit-content;
+  padding-top: 7.8125rem;
+  padding-bottom: 5rem;
+  background-image: linear-gradient(
+    $color-primary-light,
+    $color-secondary-light-blue
+  );
+
+  @include bp-tablet {
+    gap: $padding-between-components-mobile;
+    padding-top: 5rem;
+  }
+
+  &__title {
+    @include font-mobile-h2-subheader;
+    color: $color-primary-dark;
+    padding: $padding-between-components-mobile;
+    text-align: left;
+    // width: 100%;
+    // @include display-flex(column, center, center);
+  }
+}
+
+.new-comment-card p,
+.new-comment-card h3 {
+  text-align: left;
+}
+
+.new-comment-card {
+  @include display-flex(column, center, center);
+  width: auto;
+  @include bp-tablet {
+    width: 95vw;
+    margin: 0 auto;
+  }
+
+  &__container {
+    background-color: $color-primary-light;
+    filter: drop-shadow(4px 4px 4px $color-primary-dark);
+    margin: 0 0 $padding-between-components-mobile 0;
+    padding: $padding-between-components-mobile;
+    // @include display-flex(row, flex-start, space-between);
+    // flex-wrap: wrap;
+    // gap: $padding-between-components-half-mobile 0;
+    width: 85vw;
+
+    @include bp-tablet {
+      margin: 0 $padding-between-components-mobile
+        $padding-between-components-mobile $padding-between-components-mobile;
+      width: 96%;
+      //   padding: $padding-between-components-tablet;
+    }
+
+    @include bp-desktop {
+      width: 100%;
+      margin: 0 0 $padding-between-components-tablet 0;
+    }
+  }
+
+  &__username {
+    width: 100%;
+    @include font-mobile-labels-h4-table-header;
+  }
+
+  &__comment {
+    width: 100%;
+    @include font-mobile-p3-body-small;
+  }
+
+  &__timestamp {
+    @include font-mobile-p3-body-small;
+  }
+}
